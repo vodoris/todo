@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import _ from "lodash";
+
+import { getTodos } from "./services/todos.service";
 
 import "./App.css";
 import TodoList from "./components/TodoList";
 import CompletedTodoList from "./components/CompletedTodoList";
 
 const App = () => {
-  const [todos, setTodos] = useState([
-    { id: 1, task: `Take car`, completed: false },
-    { id: 2, task: `Go to Mum's`, completed: false },
-    { id: 3, task: "Kill Phil (sorry)", completed: false },
-    { id: 4, task: "Grab Liz", completed: false },
-    { id: 5, task: "Go to the Winchester", completed: false },
-    { id: 6, task: "Have a nice cold pint", completed: false },
-    { id: 7, task: "Wait for all of this to blow over", completed: false },
-  ]);
+  const [todos, setTodos] = useState(null);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const data = await getTodos();
+        setTodos(data.todos);
+      } catch (error) {
+        console.log("error");
+        // setError(error);
+      } finally {
+        // add a spinner later if i have time
+        // setLoading(false);
+      }
+    }
+    getData();
+  }, []);
 
   const addTodo = (task) => {
     const newTodo = {
