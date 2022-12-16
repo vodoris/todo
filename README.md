@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Development Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run Locally
 
-## Available Scripts
+Note: The todo-server project is private due to Firebase account keys. Reach out to me for access.
 
-In the project directory, you can run:
+1. Clone todo-server project to local.
+2. Open prompt to saved `todo-server` project.
+3. Perform `npm i`.
+4. Run `node server` command and leave running.
+5. Clone todo project to local.
+6. Open prompt to saved `todo` project.
+7. Perform `npm i`.
+8. Run `npm start` command and leave running.
 
-### `npm start`
+The server is running on port `3001` while the project runs on `3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Codebase
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Todo App
 
-### `npm test`
+- `tailwind.config.js` and `postcss.config.js` are for styling configuration and params.
+- `src/App.js` initializes the application and subsequent components and contains all operations for updating, adding, and deleting todos
+- `src/components` contains all custom components for the project.
+- `src/components/AddTodo.js` component used to create a new todo and add it to the list.
+- `src/components/CompletedTodoList.js` component used to split completed todos from active todos.
+- `src/components/Todo.js` component to display a single todo item.
+- `src/components/TodoList.js` component used to display active todos.
+- `src/services` contains service files for crud/api calls and organizes returned data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Server App
 
-### `npm run build`
+- `server.js` file which runs the nodejs server. initializes express and cors and houses the getTodos operation.
+- Contains a file for the Google Firebase key. The repository is private because of this. For access to the codebase, please reach out to me.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Tracked Time
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tuesday, 12/13
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+3:16 PM - 3:42 PM
+25 minutes, Creating the base react app, installing dependencies, and removing unneeded stuff.
 
-### `npm run eject`
+10:20 PM - 11:18 PM
+58 minutes, users can add a list item and mark an item as done.
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Thursday, 12/15
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+8:38 AM - 9:22 AM
+44 minutes, added local crud operations for core features and started styling overhaul
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+12:18 PM - 1:11 PM
+68 minutes, completed styling overhaul and began researching firebase.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+7:06 PM - 7:39 PM
+33 minutes, implemented google firebase "get" service. didn't have time for other crud operations.
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Total Development Time: 3.8 hours.
