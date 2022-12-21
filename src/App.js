@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import _ from "lodash";
 
-import { getTodos } from "./services/todos.service";
+import { getTodos, deleteTodoItem } from "./services/todos.service";
 
 import "./App.css";
 import TodoList from "./components/TodoList";
@@ -43,11 +43,17 @@ const App = () => {
     setTodos(newTodos);
   };
 
-  const deleteTodo = (todo) => {
-    const newTodos = [...todos];
-    const index = _.findIndex(newTodos, ["id", todo.id]);
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  const deleteTodo = async (todo) => {
+    try {
+      await deleteTodoItem(todo.id);
+      // update state with delete changes
+      const newTodos = [...todos];
+      const index = _.findIndex(newTodos, ["id", todo.id]);
+      newTodos.splice(index, 1);
+      setTodos(newTodos);
+    } catch (e) {
+      console.error("you done messed up dog", e);
+    }
   };
 
   return (
